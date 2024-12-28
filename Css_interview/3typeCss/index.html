@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- 1. Inline CSS
+Inline css is directly applied to an html element using the style attributes
+CSS is applied directly to individual HTML elements using the style attribute.
+Use Case: Best for quick changes or when you need to style a single element.
+
+Advantages:
+Easy to use for small, specific changes.
+No need for additional files.
+
+Disadvantages:
+Hard to maintain and update for larger projects.
+Mixes content with presentation, violating the separation of concerns.
+
+Example: -->
+<h1 style="color: blue; text-align: center;">This is Inline CSS</h1>
+
+<!-- 2. Internal CSS
+CSS is written within a <style> tag inside the <head> section of an HTML document.
+Use Case: Suitable for single-page websites or when the styles are not reused across multiple pages.
+
+Advantages:
+Keeps styles centralized for the page.
+Doesn't require external files.
+
+Disadvantages:
+Not reusable across multiple pages.
+Can make the HTML document large and cluttered.
+
+3. External CSS
+Definition: CSS is written in a separate .css file and linked to the HTML document using a <link> tag.
+Use Case: Ideal for large projects and multiple-page websites.
+Example:
+Advantages:
+
+Enables consistent styling across multiple pages.
+Keeps HTML clean and manageable.
+Makes updating styles easier.
+Disadvantages:
+
+Requires an additional HTTP request to load the external file.
+Won't apply if the external file is missing or not linked properly.
+
+
+
+
+</body>
+</html>

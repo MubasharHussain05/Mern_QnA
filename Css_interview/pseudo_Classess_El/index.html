@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Change link color when hovered */
+        a:hover {
+            color: red;
+        }
+
+        /* Add text before a paragraph */
+        p::before {
+            content: "Note: ";
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* Style the first letter of the paragraph */
+        p::first-letter {
+            font-size: 2em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+       
+    <!-- what are Pseudo-classes and Pseudo-element  keywords? -->
+    <!-- Pseudo-classes and Pseudo-element are keywords that be added to selector to styles element
+    based on their state or position in the document. Pseudo-class target specific state like
+    :hover :focus and :active, while Pseudo-element target specific parts of an element like before or after  -->
+
+    <a href="#">Hover over this link</a>
+    <p>This is a paragraph with pseudo-elements applied.</p>
+</body>
+</html>

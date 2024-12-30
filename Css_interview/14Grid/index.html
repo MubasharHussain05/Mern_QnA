@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Two columns */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 10px; /* Space between items */
+}
+
+.item1 {
+  grid-column: 1 / -1; /* Spans across all columns */
+}
+
+.item4 {
+  grid-column: 1 / -1; /* Spans across all columns */
+}
+
+    </style>
+</head>
+<body>
+    <!-- what is Css grid?
+    Css gird layout is to-dimensional layout system in css that allows for the creation of complex gird based layout 
+    with rows and columns.It provide precise control over placement and alignment of elements within rhe grid. -->
+
+    <div class="grid-container">
+        <div class="item1">Header</div>
+        <div class="item2">Sidebar</div>
+        <div class="item3">Content</div>
+        <div class="item4">Footer</div>
+      </div>
+      
+</body>
+</html>

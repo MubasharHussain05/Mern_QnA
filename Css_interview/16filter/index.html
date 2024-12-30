@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filtered-image {
+  filter: grayscale(50%) brightness(120%) blur(3px);
+  transition: filter 0.3s ease;
+}
+
+.filtered-image:hover {
+  filter: none; /* Removes filter on hover */
+}
+
+    </style>
+</head>
+<body>
+    <!-- What is filter property in css?
+    The filter property in css is used to apply graphical effects in css like blur, brightness, contrast, hue-rotate
+    invert, opacity, saturate, sepia, drop-shadow.it is commonly used for visual effects and enhancing images.
+     -->
+     <img src="example.jpg" alt="Example Image" class="filtered-image">
+
+</body>
+</html>

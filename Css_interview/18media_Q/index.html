@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+  width: 50%;
+  margin: 0 auto;
+  background-color: lightgray;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 80%;
+    background-color: lightblue;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 100%;
+    background-color: coral;
+    font-size: 14px;
+  }
+}
+
+    </style>
+</head>
+<body>
+   <!-- What is media query in css? 
+    Media query in css is a technique used to apply different styles for different devices based
+    on their screen sizes, resolution, and other features. It allows to create responsive design 
+    that adapts to different screen sizes and devices.They are commonly used for responsive web design.  -->
+    <div class="box">Responsive Box</div>
+
+</body>
+</html>

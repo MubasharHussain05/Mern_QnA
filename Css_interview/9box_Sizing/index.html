@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content-box {
+          width: 200px;
+          padding: 20px;
+          border: 10px solid black;
+          box-sizing: content-box;
+        }
+    
+        .border-box {
+          width: 200px;
+          padding: 20px;
+          border: 10px solid black;
+          box-sizing: border-box;
+        }
+        </style>
+</head>
+<body>
+     <!-- What is box-sizing property in css?
+     The box-sizing property in css determined how the total width and height 
+     property of an element can be calculated. By default width and height properties only
+     apply to content box. Setting box-sizing to " border box" include padding and border
+     in the width and height calculation.   -->
+
+     <div class="content-box">Content-Box</div>
+  <div class="border-box">Border-Box</div>
+</body>
+</html>

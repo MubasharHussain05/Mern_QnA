@@ -1,0 +1,324 @@
+Q:1 What is DSA?
+
+Data Structures and Algorithms (DSA) is a core concept in computer science and programming. 
+It focuses on organizing and managing data efficiently and solving problems effectively. 
+
+
+Q:1 What is Data Structures?
+
+Data structures are ways of organizing and storing data in a computer so it can be accessed and manipulated efficiently. 
+They are the foundation of any program or software.
+
+Types of Data Structures:
+
+1 Linear Data Structures:
+Arrays
+Linked Lists
+Stacks
+Queues
+
+2 Non-Linear Data Structures:
+Trees
+Graphs
+
+3 Hashing:
+Hash Tables/Hash Maps
+
+4 Other Data Structures:
+Heaps
+Tries
+Sets
+
+
+Details:
+
+Arrays
+An array in Data Structures and Algorithms (DSA) is a collection of elements, usually of the same data type, 
+stored at contiguous memory locations. Arrays are one of the simplest and most widely used data structures 
+because they allow easy access to data using indices.
+
+
+Linked Lists:
+A Linked List is a linear data structure where elements, called nodes, are connected using pointers. Each node consists of two parts:
+Data: The value stored in the node.
+Pointer (or Next): A reference to the next node in the sequence.
+Unlike arrays, linked lists do not store elements in contiguous memory locations. Instead, each node points to the next, forming a chain-like structure.
+
+Types:
+Singly Linked List:
+
+Each node points to the next node.
+The last node points to null (or None in Python).
+Example:
+[Data | Next] -> [Data | Next] -> [Data | Null]
+
+
+Doubly Linked List:
+
+Each node has two pointers:
+One points to the next node.
+One points to the previous node.
+Allows traversal in both directions.
+Example:
+Null <- [Prev | Data | Next] <-> [Prev | Data | Next] -> Null
+
+
+Circular Linked List:
+
+The last node points back to the first node, forming a circle.
+Can be singly or doubly linked.
+
+Advantages of Linked Lists:
+Dynamic Size
+Efficient Insertions/Deletions
+Memory Utilization
+
+Disadvantages of Linked Lists:
+No Random Access
+Extra Memory Overhead
+Complexity
+
+Common Operations on Linked Lists
+Traversal
+Insertion
+Deletion
+Search
+
+
+What is a Stack?
+A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, 
+meaning the last element added to the stack is the first one to be removed.
+
+Think of it like a stack of plates:
+
+You add plates to the top (push).
+You remove plates from the top (pop).
+
+Key Operations on a Stack:
+Push
+Pop
+Peek/Top
+IsEmpty
+Size
+
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor() {
+    this.top = null;
+  }
+
+  push(value) {
+    const newNode = new Node(value);
+    newNode.next = this.top;
+    this.top = newNode;
+  }
+
+  pop() {
+    if (!this.isEmpty()) {
+      const removedNode = this.top;
+      this.top = this.top.next;
+      return removedNode.value;
+    }
+    return "Stack is empty";
+  }
+
+  peek() {
+    if (!this.isEmpty()) {
+      return this.top.value;
+    }
+    return "Stack is empty";
+  }
+
+  isEmpty() {
+    return this.top === null;
+  }
+}
+
+// Example Usage:
+const stack = new Stack();
+stack.push(10);
+stack.push(20);
+console.log(stack.peek()); // Output: 20
+
+
+Advantages of Stacks:
+Efficient Operations
+Simple Implementation
+
+
+Disadvantages of Stacks
+Limited Access
+Fixed Size
+
+
+
+What is a Queue?
+A queue is a linear data structure that follows the First In, First Out (FIFO) principle,
+meaning the first element added to the queue is the first one to be removed.
+People join at the end of the line (enqueue).
+People leave from the front of the line (dequeue).
+
+Key Operations on a Queue:
+
+Enqueue:
+Adds an element to the end of the queue.
+Time Complexity: O(1) (in most implementations).
+
+Dequeue:
+Removes an element from the front of the queue.
+Time Complexity: O(1)
+
+Peek/Front:
+Retrieves the front element without removing it.
+
+IsEmpty:
+Checks if the queue is empty.
+
+
+Advantages of Queues:
+Order Maintenance:
+Preserves the order of elements.
+Efficient Operations:
+O(1) for both enqueue and dequeue
+
+Disadvantages of Queues:
+Limited Access:
+Only the front and rear elements can be accessed directly.
+Memory Overhead:
+Linked list-based implementations require extra memory for pointers.
+
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.front = null;
+    this.rear = null;
+  }
+
+  // Add an element to the rear of the queue
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.rear) {
+      this.rear.next = newNode;
+    }
+    this.rear = newNode;
+    if (!this.front) {
+      this.front = newNode;
+    }
+  }
+
+  // Remove an element from the front of the queue
+  dequeue() {
+    if (!this.isEmpty()) {
+      const removedNode = this.front;
+      this.front = this.front.next;
+      if (!this.front) {
+        this.rear = null;
+      }
+      return removedNode.value;
+    }
+    return "Queue is empty";
+  }
+
+  // Get the front element without removing it
+  peek() {
+    if (!this.isEmpty()) {
+      return this.front.value;
+    }
+    return "Queue is empty";
+  }
+
+  // Check if the queue is empty
+  isEmpty() {
+    return this.front === null;
+  }
+}
+
+// Example Usage:
+const queue = new Queue();
+queue.enqueue(10);
+queue.enqueue(20);
+
+console.log(queue.peek()); // Output: 10
+queue.dequeue();
+console.log(queue.peek()); // Output: 20
+
+
+
+Trees:
+A Tree is a hierarchical data structure where:
+
+Each element is called a node.
+The topmost node is the root.
+Each node can have children, and nodes without children are called leaves.
+
+Key Properties:
+Root Node: The top node in the tree.
+Parent & Child: A node connected to another is called the parent (above) or child (below).
+Height of a Tree: The number of edges on the longest path from the root to a leaf.
+
+Types of Trees:
+Binary Tree: Each node has at most two children (left and right).
+Binary Search Tree (BST): A binary tree where:
+Left child < Parent.
+Right child > Parent.
+
+AVL Tree: A balanced BST.
+Heap: A special tree where:
+Max-Heap: Parent is greater than children.
+Min-Heap: Parent is smaller than children.
+
+
+Graphs (Simplified Explanation)
+A Graph is a collection of nodes (vertices) connected by edges.
+Graphs are used to model real-world problems like social networks, road maps, and web navigation.
+
+Key Properties:
+Vertices (Nodes): The individual points in a graph.
+Edges (Connections): The lines connecting vertices.
+
+Types of Graphs:
+Directed Graph: Edges have a direction (A → B).
+Undirected Graph: Edges have no direction (A ↔ B).
+Weighted Graph: Edges have weights (e.g., distance or cost).
+Unweighted Graph: All edges have the same weight.
+
+Graph Representations:
+Adjacency Matrix: A 2D array showing connections.
+1 for connected, 0 for not connected.
+
+Adjacency List: A list of nodes with their connected neighbors.
+
+
+Hashing: A Simplified Explanation
+Hashing is a technique used to store and retrieve data efficiently. It involves converting an input (key) into a fixed-size value (hash) using a mathematical function called a hash function. The result (hash value) determines the index where the data will be stored in a hash table.
+
+How Hashing Works:
+Input (Key): The data you want to store or look up.
+Hash Function: A function that converts the input into a hash value (index).
+Hash Table: A data structure that stores key-value pairs at the computed index.
+
+Key Properties of Hashing:
+Efficiency: Lookup, insertion, and deletion operations are very fast (O(1) average time complexity).
+Uniform Distribution: A good hash function minimizes collisions by spreading keys evenly.
+Deterministic: The same input always produces the same hash.
+
+Hash Collisions
+When two keys produce the same hash value, it's called a collision.
+Collision Resolution Techniques:
+
+Chaining: Store multiple values at the same index using a linked list.
+Open Addressing: Find the next available index using methods like linear probing.

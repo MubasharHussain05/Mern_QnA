@@ -282,6 +282,45 @@ Max-Heap: Parent is greater than children.
 Min-Heap: Parent is smaller than children.
 
 
+Heaps Overview
+A heap is a specialized tree-based data structure that satisfies the heap property, 
+making it highly efficient for tasks like priority management, sorting, and dynamic median finding.
+
+Types of Heaps
+1 Binary Heap: A binary tree with the heap property.
+2 Binomial Heap: A collection of binomial trees that allows fast merging.
+3 Fibonacci Heap: Supports more efficient decrease-key operations.
+4 d-ary Heap: A generalization of binary heaps with d children per node.
+
+Key Properties:
+Heap Property
+Max-Heap: The value of each parent node is greater than or equal to its children.
+Min-Heap: The value of each parent node is less than or equal to its children.
+
+Heap Operations:
+1 Insertion:
+Add the element at the next available position (to maintain the tree structure).
+Restore the heap property by "heapifying up":
+Compare the added element with its parent.
+Swap them if necessary and continue until the heap property is restored.
+
+2 Deletion (Typically removes the root):
+Replace the root with the last element.
+Restore the heap property by "heapifying down"
+
+3 Heapify:
+A process to rearrange a subtree to satisfy the heap property.
+Used after insertion or deletion.
+
+4 Building a Heap:
+Convert an unsorted array into a heap using the "heapify" operation on non-leaf nodes in reverse order.
+Time complexity: O(n)
+
+5 Heap Sort:
+Build a max-heap from the input data
+
+
+
 Graphs (Simplified Explanation)
 A Graph is a collection of nodes (vertices) connected by edges.
 Graphs are used to model real-world problems like social networks, road maps, and web navigation.
@@ -304,7 +343,9 @@ Adjacency List: A list of nodes with their connected neighbors.
 
 
 Hashing: A Simplified Explanation
-Hashing is a technique used to store and retrieve data efficiently. It involves converting an input (key) into a fixed-size value (hash) using a mathematical function called a hash function. The result (hash value) determines the index where the data will be stored in a hash table.
+Hashing is a technique used to store and retrieve data efficiently. 
+It involves converting an input (key) into a fixed-size value (hash) using a mathematical function called a hash function. 
+The result (hash value) determines the index where the data will be stored in a hash table.
 
 How Hashing Works:
 Input (Key): The data you want to store or look up.
@@ -322,3 +363,58 @@ Collision Resolution Techniques:
 
 Chaining: Store multiple values at the same index using a linked list.
 Open Addressing: Find the next available index using methods like linear probing.
+
+
+Tries
+A Trie is a tree-like data structure used for efficient storage and retrieval of strings, especially for prefix-based operations.
+
+Key Features:
+Nodes represent characters of strings.
+Common prefixes are stored once.
+Root-to-Leaf Path represents a word.
+
+Operations:
+Insert: Add a word character by character.
+Search: Check if a word exists.
+Prefix Search: Check if a prefix exists.
+Delete: Remove a word.
+
+Advantages:
+Efficient for prefix-based operations (e.g., autocomplete).
+Time complexity: O(L) (where L = length of the word).
+
+Applications:
+Autocomplete
+Spell checking
+Longest prefix matching (e.g., in networking)
+Dictionary implementation
+
+
+Sets in Short
+A set is a collection of unique and unordered elements, used for operations like membership testing and removing duplicates.
+
+
+Key Features:
+Stores only unique elements.
+Unordered: No specific order of elements.
+Supports common set operations.
+
+
+Operations:
+Add: Insert an element (set.add(element)).
+Remove: Delete an element (set.remove(element)).
+Membership Testing: Check if an element exists (element in set).
+Union: Combine two sets (set1 | set2).
+Intersection: Common elements (set1 & set2).
+Difference: Elements in one set but not the other (set1 - set2).
+
+Advantages:
+Removes duplicates.
+Fast membership checks (O(1) for average cases).
+
+Applications:
+Remove duplicates from a list.
+Efficient membership testing.
+Set-based operations in logic or Venn diagrams.
+
+

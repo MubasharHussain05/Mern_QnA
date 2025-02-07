@@ -11,6 +11,7 @@ They are the foundation of any program or software.
 
 Types of Data Structures:
 
+
 1 Linear Data Structures:
 Arrays
 Linked Lists
@@ -84,6 +85,86 @@ Insertion
 Deletion
 Search
 
+// Node class
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Linked List class
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    // Insert at the end
+    append(data) {
+        let newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+            return;
+        }
+        let current = this.head;
+        while (current.next) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
+    // Insert at the beginning
+    prepend(data) {
+        let newNode = new Node(data);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
+    // Delete a node by value
+    delete(data) {
+        if (!this.head) return;
+
+        if (this.head.data === data) {
+            this.head = this.head.next;
+            return;
+        }
+
+        let current = this.head;
+        while (current.next && current.next.data !== data) {
+            current = current.next;
+        }
+
+        if (current.next) {
+            current.next = current.next.next;
+        }
+    }
+
+    // Print linked list
+    printList() {
+        let current = this.head;
+        let list = "";
+        while (current) {
+            list += current.data + " -> ";
+            current = current.next;
+        }
+        console.log(list + "null");
+    }
+}
+
+// Example usage
+let list = new LinkedList();
+list.append(10);
+list.append(20);
+list.append(30);
+list.prepend(5);
+console.log("Linked List after insertions:");
+list.printList(); // Output: 5 -> 10 -> 20 -> 30 -> null
+
+list.delete(20);
+console.log("Linked List after deletion:");
+list.printList(); // Output: 5 -> 10 -> 30 -> null
+
+
 
 What is a Stack?
 A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, 
@@ -119,6 +200,7 @@ class Stack {
     newNode.next = this.top;
     this.top = newNode;
   }
+
 
   pop() {
     if (!this.isEmpty()) {

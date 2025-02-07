@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//1. FizzBuzz Problem
+//Write a program that prints the numbers from 1 to 100. 
+//But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. 
+//For numbers which are multiples of both three and five print “FizzBuzz”.
+
+// for (let i = 1; i <= 100; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//         console.log("Fizz");
+//     } else if (i % 5 === 0) {
+//         console.log("Buzz");
+//     } else {
+//         console.log(i);
+//     }
+// }
+
+
+//2. Find the Largest Number in an Array
+//Write a program that finds the largest number in an array.
+
+// function findLargest(arr) {
+//     let largest = arr[0];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] > largest) {
+//             largest = arr[i];
+//         }
+//     }
+//     return largest;
+// }
+// console.log(findLargest([3, 5, 7, 2, 8])); // Output: 8
+
+
+// // 3. Find the Smallest Number in an Array
+// // Write a program that finds the smallest number in an array.
+
+// function findSmallest(arr) {
+//     let smallest = arr[0];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] < smallest) {
+//             smallest = arr[i];
+//         }
+//     }
+//     return smallest;
+// }
+
+// console.log(findSmallest([3, 5, 1, 8, 2])); // Output: 1
+
+
+// 4. Find the Sum of First N Natural Numbers
+// Write a program that calculates the sum of first n natural numbers.
+
+// function sumOfNaturalNumbers(N) {
+//     let sum = 0;
+//     for (let i = 1; i <= N; i++) {
+//         sum += i;
+//     }
+//     return sum;
+// }
+
+// console.log(sumOfNaturalNumbers(5)); // Output: 15
+
+
+// 5. Check If a Number is Even or Odd
+// Write a program that checks if a number is even or odd.
+
+// function isEvenOrOdd(num) {
+//     return num % 2 === 0 ? "Even" : "Odd";
+// }
+
+// console.log(isEvenOrOdd(7)); // Output: "Odd"
+// console.log(isEvenOrOdd(10)); // Output: "Even"
+
+
+//6.Print Multiplication Table of a Number
+//Write a program that prints the multiplication table of a number.
+
+// function multiplicationTable(N) {
+//     for (let i = 1; i <= 10; i++) {
+//         console.log(`${N} x ${i} = ${N * i}`);
+//     }
+// }
+
+// multiplicationTable(3);
+
+
+//7. Find Factorial of a Number
+//Write a program that calculates the factorial of a number.
+
+// function factorial(N) {
+//     let result = 1;
+//     for (let i = 1; i <= N; i++) {
+//         result *= i;
+//     }
+//     return result;
+// }
+
+// console.log(factorial(5)); // Output: 120
+
+//8. Calculate the Power of a Number
+//Write a program that calculates the power of a number.
+
+// function calculatePower(base, exponent) {
+//     let result = 1;
+//     for (let i = 1; i <= exponent; i++) {
+//         result *= base;
+//     }
+//     return result;
+// }
+
+// console.log(calculatePower(2, 3)); // Output: 8
+
+
+//9. Count the Number of Vowels in a String
+//Write a program that counts the number of vowels in a string.
+
+// function countVowels(str) {
+//     let vowels = "aeiou";
+//     let count = 0;
+//     for (let char of str.toLowerCase()) {
+//         if (vowels.includes(char)) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countVowels("hello world")); // Output: 3
+
+
+//10. Reverse a String
+//Write a program that reverses a string.
+
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+
+// console.log(reverseString("hello")); // Output: "olleh"
+
+//11. Reverse Words in a String
+// function reverseWords(str) {
+//     return str.split(' ').reverse().join(' ');
+// }
+
+// console.log(reverseWords("the sky is blue"));  // Output: "blue is sky the"
+
+
+// 12. write function whisper that takes a string as an argument and returns a new string
+//  that has all the letters in the input string in lowercase and removes any exclamation marks. 
+// The function should not modify the input string.
+
+// function whisper(str) {
+//     return "shh... " + str.trim().toLowerCase().replace(/!$/, "");
+// }
+
+// console.log(whisper("HELLO WORLD!")); // "shh... hello world"
+// console.log(whisper("  Keep Calm!! ")); // "shh... keep calm!"
+// console.log(whisper("Code in Peace ")); // "shh... code in peace"
+
+
+// 13.panic function that takes a string as an argument and
+// returns a new string that has all the letters in the input string in uppercase and
+//  adds an exclamation mark after each letter. 
+// The function should not modify the input string.
+
+// function panic(str) {
+//     return str.split(" ").join("😎").toUpperCase();
+// }
+// console.log(panic("hello world")); // "HELLO!!!WORLD"
+// console.log(panic("keep calm and code")); // "KEEP!!!CALM!!!AND!!!CODE"
+// console.log(panic("single")); // "SINGLE"
+
+
+// 14. reverse Array with string
+
+// let string="mubashar"
+// let reverse=""
+
+// for(let i=string.length-1;i>=0;i--){
+// reverse +=string(i)
+// } 
+// console.log(reverse)
+
+
+//15.remove doublicate array
+
+// const Array=[1,4,3,5,"Banana",6,7,8,"Banana",8]
+// const uniqueArray=Array.filter((curElem,index)=>{
+// return Array.indexOf(curElem)===index
+// });
+// console.log(uniqueArray)
+
+
+//16. Check for Palindrome Strings
+//Write a program that checks if a string is a palindrome.
+
+// function isPalindrome(str) {
+//     let reversed = str.split("").reverse().join("");
+//     return str === reversed ? "Yes" : "No";
+// }
+// console.log(isPalindrome("madam")); // Output: "Yes"
+// console.log(isPalindrome("hello")); // Output: "No"
+
+
+//17. Find the Length of a String
+//Write a program that calculates the length of a string.
+
+// function findLength(str) {
+//     return str.length;
+
+// //}
+//console.log(findLength("hello")); // Output: 5
+
+
+//18. Count Digits in a Number
+//Write a program that counts the number of digits in a number.
+
+// function countDigits(num) {
+//     return String(num).length;
+// }
+
+// console.log(countDigits(12345)); // Output: 5
+
+
+//19. Check if a Number is Positive, Negative, or Zero
+//Write a program that checks if a number is positive, negative, or zero.
+
+// function checkNumber(num) {
+//     if (num > 0) return "Positive";
+//     if (num < 0) return "Negative";
+//     return "Zero";
+// }
+
+// console.log(checkNumber(-10)); // Output: "Negative"
+// console.log(checkNumber(0));   // Output: "Zero"
+// console.log(checkNumber(5));   // Output: "Positive"
+
+
+//20. Sum of Array Elements
+
+// function sumArray(arr) {
+//     return arr.reduce((sum, num) => sum + num, 0);
+// }
+
+// console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15
+
+
+//21.Find the GCD (Greatest Common Divisor) of Two Numbers
+
+// function findGCD(a, b) {
+//     while (b !== 0) {
+//         let temp = b;
+//         b = a % b;
+//         a = temp;
+//     }
+//     return a;
+// }
+// console.log(findGCD(8, 12)); // Output: 4
+
+
+//22.Pyramid Pattern
+//Write a program that prints a pyramid pattern.
+// function printPyramid(rows) {
+//     for (let i = 1; i <= rows; i++) {
+//         let spaces = " ".repeat(rows - i);
+//         let stars = "*".repeat(2 * i - 1);
+//         console.log(spaces + stars);
+//     }
+// }
+// printPyramid(3);
+/*
+Output:
+  *
+ ***
+*****
+*/
+
+
+// 23. Number Triangle
+// function printNumberTriangle(rows) {
+//     for (let i = 1; i <= rows; i++) {
+//         console.log(String(i).repeat(i));
+//     }
+// }
+// printNumberTriangle(3);
+/*
+Output:
+1
+22
+333
+*/
+
+
+//24.Write a program that prints a hollow pyramid pattern.
+
+//  function printHollowPyramid(rows) {
+//     for (let i = 1; i <= rows; i++) {
+//         let spaces = " ".repeat(rows - i);
+//         let stars = i === 1 || i === rows ? "*".repeat(2 * i - 1) : "*" + " ".repeat(2 * (i - 1) - 1) + "*";
+//         console.log(spaces + stars);
+//     }
+//  }
+//     printHollowPyramid(5);
+
+
+// 25. Check if a Number is Prime
+// Write a program that checks if a number is prime.
+
+// function isPrime(num) {
+//     if (num <= 1) return false;
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
+//         if (num % i === 0) return false;
+//     }
+//     return true;
+// }
+
+// console.log(isPrime(17)); // Output: true
+// console.log(isPrime(4));  // Output: false
+
+
+//26. write a function multiply that multiplies all the elements of an array recursively. 
+
+// function multiply(arr) {
+//     if (arr.length <= 0) {
+//         return 1; // Base case: if the array is empty, return 1
+//     } else {
+//         return arr[arr.length - 1] * multiply(arr.slice(0, arr.length - 1)); // Multiply last element with the recursive call
+//     }
+// }
+// console.log(multiply([1, 2, 3, 4]));  // Output: 24
+
+
+// 27. merge and sort arr1 and arr2 into a single sorted array, you can use JavaScript's spread operator and sort method:
+
+// let arr1 = [1, 3, 5, 7, 9];
+// let arr2 = [2, 4, 68, 10];
+// let sortedArray = [...arr1, ...arr2].sort((a, b) => a - b);
+// console.log(sortedArray); // Output: [1, 2, 3, 4, 5, 7, 9, 10, 68]
+
+
+
+// 28. Write a function that takes a sorted array of integers and finds the first pair of numbers whose sum is zero. 
+// If no such pair exists, return "No pair found".
+
+// function checkSumZero(arr) {
+//     let left = 0, right = arr.length - 1;
+//     while (left < right) {
+//         let sum = arr[left] + arr[right];
+
+//         if (sum === 0) return [arr[left], arr[right]];
+//         sum < 0 ? left++ : right--;
+//     }
+//     return "No pair found";
+// }
+// console.log(checkSumZero([-5, -4, -3, -2, 0, 2, 3, 4, 6, 8]));
+
+
+//29 find twoSum num and target sum.
+
+// function twoSum(nums, target) {
+//     const map = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//         const complement = target - nums[i];
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+
+//     return []; // Return an empty array if no solution is found
+// }
+// // Example usage
+// console.log(twoSum([2, 2, 11, 15], 9));  // Output: [0, 1]
+// console.log(twoSum([3, 2, 4], 6));       // Output: [1, 2]
+
+
+// 30. Rotate Matrix 90 Degrees Clockwise
+
+// function rotateMatrix(matrix) {
+//     let n = matrix.length;
+//     let rotated = Array.from({ length: n }, () => Array(n).fill(0));
+//     for (let i = 0; i < n; i++) {
+//         for (let j = 0; j < n; j++) {
+//             rotated[j][n - i - 1] = matrix[i][j];
+//         }
+//     }
+//     return rotated;
+// }
+
+// let matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ];
+// console.log(rotateMatrix(matrix));
+// Output:
+// [
+//   [7, 4, 1],
+//   [8, 5, 2],
+//   [9, 6, 3]
+//     ]
+
+
+// 31. Armstrong Number in JavaScript.
+
+// function isArmstrong(num) {
+//     let sum = 0;
+//     let digits = String(num).split("").map(Number);
+//     for (let digit of digits) {
+//         sum += Math.pow(digit, digits.length);
+//     }
+//     return sum === num;
+// }
+
+// console.log(isArmstrong(153)); // Output: true
+// console.log(isArmstrong(123)); // Output: false
+    
+
+// 32. isAnaGram function that takes two strings as arguments and returns true if they are anagrams, false otherwise.
+
+// function isAnagram(str1, str2) {
+//     // If the lengths are not equal, they can't be anagrams
+//     if (str1.length !== str2.length) return false;
+
+//     // Convert strings to arrays of characters, sort them, and compare
+//     const sortedStr1 = str1.split('').sort().join('');
+//     const sortedStr2 = str2.split('').sort().join('');
+//     return sortedStr1 === sortedStr2;
+// }
+// // Example usage
+// console.log(isAnagram("anagram", "nagram")); // true
+// console.log(isAnagram("rat", "car"));         // false
+
+
+//33. Fibonacci Number
+
+// function fibonacci(n) {
+//     if (n <= 1) return n;
+//     let prev = 0, curr = 1;
+//     for (let i = 2; i <= n; i++) {
+//         let temp = curr;
+//         curr = prev + curr;
+//         prev = temp;
+//     }
+//     return curr;
+// }
+// // Example usage
+// console.log(fibonacci(6)); // Output: 8
+// console.log(fibonacci(10)); // Output: 55
+
+
+// 34.Write a function rotateArray(arr, k) that rotates an array to the right by k steps. 
+// The last k elements should move to the front.
+
+// function rotateArray(arr, k) {
+//     k = k % arr.length; // Handle cases where k > array length
+//     return arr.slice(-k).concat(arr.slice(0, -k));
+// }
+
+// console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [4, 5, 1, 2, 3]
+// console.log(rotateArray([10, 20, 30, 40, 50], 3)); // [30, 40, 50, 10, 20]
+// console.log(rotateArray([7, 8, 9], 1)); // [9, 7, 8]
+
+
+// 35. To find the subarray with the largest sum, you can use Kadane's Algorithm. 
+// This algorithm runs in O(n) time and is very efficient for this problem
+
+// function maxSubArraySum(arr) {
+//     let maxSum = arr[0];  // Initialize with the first element
+//     let currentSum = arr[0];
+
+//     for (let i = 1; i < arr.length; i++) {
+//         // Update current sum by either starting a new subarray or adding the current element
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+
+//         // Update the maximum sum found so far
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+
+//     return maxSum;
+// }
+// console.log(maxSubArraySum([1, -2, 3, 4, -1, 2, 1, -5, 4]));  // Output: 8
+
+
+// 36. To check if a given string containing only brackets (like "()", "{}[]", or "(]") 
+// is balanced, you can use a stack
+
+// function isValid(s) {
+//     let stack = [];
+//     let map = {
+//         '(': ')',
+//         '{': '}',
+//         '[': ']'
+//     };
+    
+//     for (let char of s) {
+//         if (map[char]) {
+//             stack.push(char);  // If it's an opening bracket, push to stack
+//         } else {
+//             let top = stack.pop();  // Pop from stack
+//             if (map[top] !== char) {
+//                 return false;  // If it doesn't match, return false
+//             }
+//         }
+//     }
+    
+//     return stack.length === 0;  // If stack is empty, it's balanced
+// }
+
+// console.log(isValid("()"));        // true
+// console.log(isValid("(){}[]"));    // true
+// console.log(isValid("(]"));        // false
+
+
+// 37. To find the maximum profit from buying and selling a stock given the list of prices 
+// [7,1,5,3,6,4], we need to determine the largest difference between a later selling price 
+// and an earlier buying price.
+function maxProfit(prices) {
+    let minPrice = prices[0];
+    let maxProfit = 0;
+
+    for (let price of prices) {
+        minPrice = Math.min(minPrice, price);
+        maxProfit = Math.max(maxProfit, price - minPrice);
+    }
+
+    return maxProfit;
+}
+
+const prices = [7, 1, 5, 3, 6, 4];
+console.log(maxProfit(prices)); // Output: 5
+
+
+// 38."Write a function that takes an array and a chunk size as input. 
+// The function should return a new array where the original array is split into chunks of the specified size. 
+// For example, given the input ([1,2,3,4,5,6,7,8], 3), the output should be [[1,2,3], [4,5,6], [7,8]]."
+
+function chunkArray(arr, size) {
+    let result = [];
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8], 3));
+// Output: [[1, 2, 3], [4, 5, 6], [7, 8]]
+
+
+
+
+
+
+    </script>
+</body>
+</html>

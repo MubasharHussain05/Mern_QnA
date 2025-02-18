@@ -1,0 +1,617 @@
+What is differentiation between DBMS (Database Management System) and RDBMS (Relational Database Management System)?
+
+A software system that manages databases, storing and retrieving data efficiently.
+Uses a hierarchical, network, or file-based structure to store data.
+XML, CSV, MS Access, and file systems.
+
+A type of DBMS that organizes data in tables with relationships between them.
+Uses a tabular structure with rows and columns.MySQL, PostgreSQL, SQL Server, Oracle, and SQLite
+
+
+What is Primary key?
+
+A Primary Key is a unique identifier for each record in a database table. 
+It ensures that no two rows have the same value and prevents duplicate entries.
+Uniqueness – Each value in the primary key column must be unique.
+Non-Nullable – A primary key cannot contain NULL values.
+
+Student_ID (Primary Key)	Name	      Age
+101	                        Ali	          22
+102	                       Ayesha	      23
+103	                       Ahmed	      21
+
+
+CREATE TABLE Students (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT
+);
+
+
+
+What is foreign key?
+
+A Foreign Key is a column (or a set of columns) in a table that creates a link between two tables. 
+It refers to the Primary Key in another table, ensuring referential integrity in the database.
+
+
+Student_ID (Primary Key)	Name	      Age
+101	                        Ali	          22
+102	                       Ayesha	      23
+103	                       Ahmed	      21
+
+
+
+Enrollment_ID	Student_ID (Foreign Key)	Course
+1	             101	                     Math
+2	             102	                     Science
+3	             103	                     English
+
+
+CREATE TABLE Students (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT
+);
+
+CREATE TABLE Enrollments (
+    Enrollment_ID INT PRIMARY KEY,
+    Student_ID INT,
+    Course VARCHAR(50),
+    FOREIGN KEY (Student_ID) REFERENCES Students(Student_ID)
+);
+
+
+What is a Constraint?
+A constraint is a rule enforced on a column in a database table to maintain data accuracy, integrity,
+and reliability. Constraints prevent invalid data entry and ensure that the database follows specific rules.
+
+Types of Constraints in SQL
+
+1️⃣ PRIMARY KEY 🔑
+2️⃣ FOREIGN KEY 🔗
+
+3️⃣ UNIQUE 🚫
+CREATE TABLE Users (
+    User_ID INT UNIQUE,
+    Email VARCHAR(100) UNIQUE
+);
+
+4️⃣ NOT NULL ❌
+CREATE TABLE Employees (
+    Employee_ID INT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL
+);
+
+
+5️⃣ CHECK ✅
+Restricts the values entered in a column based on a condition.
+
+CREATE TABLE Products (
+    Product_ID INT PRIMARY KEY,
+    Price DECIMAL(10,2) CHECK (Price > 0)
+);
+
+6️⃣ DEFAULT 🔄
+Assigns a default value if no value is provided.
+
+CREATE TABLE Orders (
+    Order_ID INT PRIMARY KEY,
+    Status VARCHAR(20) DEFAULT 'Pending'
+);
+
+
+7️⃣ AUTO_INCREMENT (MySQL) 🔢
+Automatically generates unique numbers for a column.
+Commonly used with Primary Keys.
+CREATE TABLE Customers (
+    Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+
+Explain different type of SQL command?
+
+1️⃣ DDL (Data Definition Language) – Defines Database Structure
+CREATE	Creates a new database, table, view, or index.
+ALTER	Modifies an existing table by adding, deleting, or modifying columns.
+DROP	Deletes a database, table, or column permanently.
+TRUNCATE Deletes all records from a table but keeps the structure.
+RENAME	Renames a table or a column.
+
+CREATE TABLE Employees (
+    Employee_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Salary DECIMAL(10,2)
+);
+
+ALTER TABLE Employees ADD COLUMN Age INT;
+
+DROP TABLE Employees;
+
+
+2️⃣ DML (Data Manipulation Language) – Manipulates Data
+DML commands are used to insert, update, retrieve, and delete data in tables.
+INSERT	Adds new records into a table.
+UPDATE	Modifies existing records in a table.
+DELETE	Removes specific records from a table.
+MERGE	Combines INSERT, UPDATE, and DELETE in one command (used in some databases).
+
+
+INSERT INTO Employees (Employee_ID, Name, Salary) VALUES (101, 'Ali', 50000);
+
+UPDATE Employees SET Salary = 60000 WHERE Employee_ID = 101;
+
+DELETE FROM Employees WHERE Employee_ID = 101;
+
+
+3️⃣ DQL (Data Query Language) – Retrieves Data
+DQL commands are used to fetch data from the database.
+SELECT	Retrieves data from one or more tables.
+
+SELECT * FROM Employees;
+SELECT Name, Salary FROM Employees WHERE Salary > 50000;
+
+
+4️⃣ DCL (Data Control Language) – Controls Access
+DCL commands are used to manage user permissions and access control in the database.
+
+GRANT	Gives privileges to a user.
+REVOKE	Removes privileges from a user.
+
+GRANT SELECT, INSERT ON Employees TO User1;
+
+REVOKE INSERT ON Employees FROM User1;
+
+
+5️⃣ TCL (Transaction Control Language) – Manages Transactions
+TCL commands control the execution of transactions in a database, ensuring data consistency and integrity.
+
+COMMIT	Saves all changes made in the current transaction.
+ROLLBACK	Reverts changes made in the current transaction.
+SAVEPOINT	Creates a save point within a transaction to rollback to a specific state.
+
+BEGIN TRANSACTION;
+UPDATE Employees SET Salary = 70000 WHERE Employee_ID = 101;
+
+SAVEPOINT BeforeSalaryUpdate;
+
+UPDATE Employees SET Salary = 80000 WHERE Employee_ID = 101;
+
+ROLLBACK TO BeforeSalaryUpdate;
+
+COMMIT;
+
+
+
+What is difference between delete TRUNCATE and DROP?
+
+
+
+
+1️⃣ DELETE – Removes Specific Rows
+Can delete specific records using WHERE.
+Can be rolled back inside a transaction.
+Slower because it logs each deletion for rollback.
+
+Example:
+DELETE FROM Employees WHERE Employee_ID = 101;
+
+
+2️⃣ TRUNCATE – Removes All Rows (Fast)
+Removes all records but keeps the table structure.
+Cannot be rolled back.
+Resets AUTO_INCREMENT values.
+Faster than DELETE since it does not log individual row deletions.
+
+Example:
+TRUNCATE TABLE Employees;
+Deletes all rows but keeps the table structure intact.
+
+3️⃣ DROP – Deletes Table Completely
+Removes the table structure, constraints, and indexes.
+Cannot be rolled back.
+Everything is permanently deleted.
+Example:
+DROP TABLE Employees;
+
+
+The Employees table is permanently removed, including its data, structure, and constraints.
+Which One to Use?
+✔ Use DELETE when you want to remove specific records and may need to rollback.
+✔ Use TRUNCATE when you want to clear all records but keep the table for future use.
+✔ Use DROP when you want to completely remove a table from the database.
+
+🚀 Best Practice:
+
+Use DELETE when working with specific rows.
+Use TRUNCATE when clearing a table completely but keeping its structure.
+Use DROP only when you are sure you no longer need the table.
+
+
+
+What is group by ?
+The GROUP BY clause in SQL is used to group rows that have the same values in specified columns. 
+It is commonly used with aggregate functions such as SUM(), COUNT(), AVG(), MAX(), and MIN() to 
+perform calculations on each group.
+
+SELECT department, COUNT(*) 
+FROM employees 
+GROUP BY department;
+
+
+what is order by?
+The ORDER BY clause in SQL is used to sort the result set in ascending (ASC) or descending (DESC) order based on one or more columns
+
+SELECT name, salary 
+FROM employees 
+ORDER BY salary DESC;
+
+
+
+What is Join in SQL?
+A JOIN in SQL is used to combine rows from two or more tables based on a related column between them. 
+It helps retrieve data that is distributed across multiple tables.
+
+Types of JOINs in SQL:
+
+1. INNER JOIN (Default JOIN)
+Returns only matching rows from both tables.
+Non-matching rows are excluded.
+
+SELECT employees.name, departments.department_name  
+FROM employees  
+INNER JOIN departments ON employees.department_id = departments.id;
+
+2. LEFT JOIN (LEFT OUTER JOIN)
+Returns all rows from the left table and matching rows from the right table.
+If no match is found, NULL is returned for right table columns.
+
+SELECT employees.name, departments.department_name  
+FROM employees  
+LEFT JOIN departments ON employees.department_id = departments.id;
+
+
+4. FULL JOIN (FULL OUTER JOIN)
+Returns all rows from both tables, whether they have a match or not.
+If no match is found, NULL is returned for the missing values.
+
+SELECT employees.name, departments.department_name  
+FROM employees  
+FULL JOIN departments ON employees.department_id = departments.id;
+
+
+5. CROSS JOIN
+Returns every possible combination of rows from both tables (Cartesian product).
+No ON condition is used.
+
+SELECT employees.name, departments.department_name  
+FROM employees  
+CROSS JOIN departments;
+
+
+
+1. Nested Subquery (Inner Query or Subquery)
+A nested subquery is a query inside another query that executes independently first, and its result is used by the outer query. 
+It does not depend on the outer query's row values.
+
+SELECT name, salary 
+FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+
+
+2. Correlated Subquery
+A correlated subquery is a subquery that depends on the outer query's row values. 
+It executes once for each row in the outer query.
+
+SELECT e1.name, e1.salary, e1.department_id 
+FROM employees e1 
+WHERE e1.salary > (SELECT AVG(e2.salary) 
+                   FROM employees e2 
+                   WHERE e1.department_id = e2.department_id);
+
+
+
+Pattern Matching in SQL
+Pattern matching in SQL is used to search for data that follows a specific format or pattern. 
+The most common way to perform pattern matching is using the LIKE and REGEXP (in some databases) operators.
+
+1. Pattern Matching Using LIKE
+The LIKE operator is used with wildcard characters to find patterns in text values.
+
+Wildcard	       Description	                                            Example
+%	       Matches zero or more characters	                                'A%' → Matches "Apple", "America"
+_	       Matches exactly one character	                                'A_' → Matches "An", "At", but not "Apple"
+[ ]	       Matches any character inside the brackets (only in SQL Server)	'[aeiou]%' → Matches words starting with vowels
+[^ ]	   Matches any character NOT in the brackets (only in SQL Server)	'[^A]%' → Matches words NOT starting with 'A'
+
+Examples:
+SELECT name FROM employees WHERE name LIKE 'J%';
+✔ Matches: "John", "James", "Jack"
+
+2️⃣ Find names with "o" in the second position:
+
+SELECT name FROM employees WHERE name LIKE '_o%';
+✔ Matches: "Robert", "Tom"
+
+3️⃣ Find names that end with "n":
+SELECT name FROM employees WHERE name LIKE '%n';
+Matches: "John", "Ethan"
+
+
+
+2. Pattern Matching Using REGEXP (MySQL, PostgreSQL, etc.)
+The REGEXP operator provides advanced pattern matching using regular expressions.
+
+Common REGEXP Patterns:
+Pattern	       Description	        Example
+^A	           Starts with "A"	    '^A' → Matches "Apple", "Andrew"
+n$	           Ends with "n"	    'n$' → Matches "John", "Ethan"
+[aeiou]	       Contains any vowel	'[aeiou]' → Matches "Jane", "Olivia"
+[0-9]	       Contains a number	'[0-9]' → Matches "User123"
+`A	B`	       Matches "A" or "B"
+
+1️⃣ Find names that start with "J" or "M"
+SELECT name FROM employees WHERE name REGEXP '^(J|M)';
+Matches: "John", "Mike"
+
+2️⃣ Find names ending with "n" or "e":
+
+SELECT name FROM employees WHERE name REGEXP '(n|e)$';
+✔ Matches: "John", "Jane"
+
+When to Use LIKE vs. REGEXP?
+Feature	LIKE	                         REGEXP
+Simple patterns	                         ✅ Yes	❌ No
+Complex patterns	                     ❌ No	✅ Yes
+Performance (Fast on small data)	     ✅ Fast	❌ Slower
+Flexible pattern matching	❌ Limited   ✅ More powerful
+
+
+2nd highest salary
+SELECT MAX(salary) 
+FROM employees 
+WHERE salary < (SELECT MAX(salary) FROM employees);
+
+Find the Nth highest salary:
+SELECT salary 
+FROM employees e1 
+WHERE (N-1) = (SELECT COUNT(DISTINCT salary) FROM employees e2 WHERE e2.salary > e1.salary);
+
+
+1️⃣ What is SQL?
+SQL databases are relational databases (RDBMS) that store data in tables with structured relationships between them. 
+They use structured query language (SQL) to manage and retrieve data.
+
+🔹 Examples of SQL Databases:
+✅ MySQL
+✅ PostgreSQL
+✅ SQL Server
+✅ Oracle
+✅ MariaDB
+
+✔ Best for: Applications needing structured, consistent data (e.g., banking, e-commerce, CRM).
+
+
+2️⃣ What is NoSQL?
+NoSQL databases store data in a flexible, non-tabular format (e.g., JSON, key-value pairs, graphs, columns). 
+They are designed for high scalability and unstructured data.
+
+🔹 Types of NoSQL Databases:
+✅ Document-based (MongoDB, CouchDB) – Stores data as JSON/BSON.
+✅ Key-Value (Redis, DynamoDB) – Fast lookups with key-value pairs.
+✅ Column-Family (Cassandra, HBase) – Optimized for analytics, stores data in columns.
+✅ Graph-Based (Neo4j, ArangoDB) – Best for relationships between entities (e.g., social networks).
+
+✔ Best for: Applications needing flexibility, high-speed data access, and scalability (e.g., real-time analytics, IoT, social media).
+
+
+1️⃣ VARCHAR (Deprecated in Oracle)
+In older versions of Oracle, VARCHAR was used, but it is now reserved for future use and should be avoided.
+Behavior: Acts the same as VARCHAR2, but it may change in future versions of Oracle.
+✔ Example:
+
+CREATE TABLE employees (
+    name VARCHAR(50)
+);
+
+
+2️⃣ VARCHAR2 (Recommended in Oracle)
+VARCHAR2 is the officially supported variable-length data type in Oracle.
+Removes trailing spaces automatically.
+Storage-efficient – only uses space required for actual data.
+✔ Example:
+
+CREATE TABLE employees (
+    name VARCHAR2(50)
+);
+
+
+
+Trigger in SQL
+A trigger is a special type of stored procedure in a database that automatically executes when a specific event (INSERT, UPDATE, DELETE) occurs in a table. 
+Triggers help enforce business rules, maintain data integrity, and automate database tasks.
+
+1️⃣ Key Features of Triggers:
+✅ Automatically executed (No need to call manually).
+✅ Executed before or after an event (INSERT, UPDATE, DELETE).
+✅ Enforces rules (e.g., logging changes, restricting updates).
+✅ Maintains data consistency in related tables.
+
+🔹 Example 1: BEFORE INSERT Trigger
+➡ Prevents inserting negative salary in an employees table.
+
+CREATE TRIGGER prevent_negative_salary
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Salary cannot be negative';
+    END IF;
+END;
+
+
+🔹 Example 2: AFTER UPDATE Trigger
+
+CREATE TRIGGER log_salary_update
+AFTER UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (emp_id, old_salary, new_salary, updated_at)
+    VALUES (OLD.id, OLD.salary, NEW.salary, NOW());
+END;
+
+
+ACID Properties in SQL
+ACID stands for Atomicity, Consistency, Isolation, and Durability—four key properties that ensure data integrity and reliability in relational databases. 
+These properties are essential in transactions to prevent data corruption and maintain consistency even in system failures.
+
+1️⃣ Atomicity (All or Nothing)
+A transaction must be fully completed or fully rolled back—no partial execution is allowed.
+
+✅ Example:
+
+Transferring $500 from Account A to Account B involves two steps:
+Deduct $500 from Account A.
+Add $500 to Account B.
+If the system crashes after step 1 but before step 2, Atomicity ensures step 1 is rolled back, preventing loss of money.
+
+START TRANSACTION;
+UPDATE accounts SET balance = balance - 500 WHERE account_id = 1;
+UPDATE accounts SET balance = balance + 500 WHERE account_id = 2;
+COMMIT; -- Ensures both steps succeed together
+
+
+2️⃣ Consistency (Valid State)
+A transaction must bring the database from one valid state to another, maintaining rules, constraints, and integrity.
+
+✅ Example:
+
+If a withdrawal reduces a balance below zero, the transaction should fail to maintain consistency.
+
+ALTER TABLE accounts ADD CONSTRAINT check_balance CHECK (balance >= 0);
+
+
+3️⃣ Isolation (Concurrent Transactions)
+Multiple transactions running at the same time should not interfere with each other, ensuring correct results.
+
+✅ Example:
+
+Two users booking the last available airline seat:
+User A sees the seat available and tries to book.
+User B at the same time sees it and tries to book.
+Without Isolation, both might get the same seat!
+With Isolation, one transaction locks the seat until the booking is complete.
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+
+4️⃣ Durability (Permanent Changes)
+Once a transaction is committed, the data must persist even if the system crashes.
+
+✅ Example:
+
+If you transfer money online and the transaction is confirmed, your balance should not reset after a power failure.
+
+COMMIT; -- Saves changes permanently
+
+
+
+Query Questions?
+
+0 Find the third-highest salary from the EmployeeInfo table.
+
+SELECT salary 
+FROM EmployeeInfo 
+WHERE salary = (
+    SELECT DISTINCT salary 
+    FROM EmployeeInfo 
+    ORDER BY salary DESC 
+    LIMIT 1 OFFSET 2
+);
+
+
+1 Find the Nth highest salary from the table without using TOP/limit keyword.
+
+SELECT DISTINCT salary 
+FROM employees e1
+WHERE (N-1) = (
+    SELECT COUNT(DISTINCT salary) 
+    FROM employees e2 
+    WHERE e2.salary > e1.salary
+);
+
+
+2 Find duplicate rows in a table.
+
+SELECT name, salary, COUNT(*) AS duplicate_count
+FROM employees
+GROUP BY name, salary
+HAVING COUNT(*) > 1;
+
+
+3 Calculate the even and odd records from a table.
+
+SELECT 
+    SUM(CASE WHEN MOD(ROW_NUMBER() OVER (ORDER BY id), 2) = 0 THEN 1 ELSE 0 END) AS even_records,
+    SUM(CASE WHEN MOD(ROW_NUMBER() OVER (ORDER BY id), 2) = 1 THEN 1 ELSE 0 END) AS odd_records
+FROM employees;
+
+4 Display the first and the last record from the EmployeeInfo table.
+
+-- Get the first record
+SELECT * 
+FROM EmployeeInfo
+ORDER BY id ASC
+LIMIT 1
+
+UNION
+
+-- Get the last record
+SELECT * 
+FROM EmployeeInfo
+ORDER BY id DESC
+LIMIT 1;
+
+
+5 How do you copy all rows of a table using SQL query? 
+
+INSERT INTO EmployeeInfo_Copy (column1, column2, column3)
+SELECT column1, column2, column3 
+FROM EmployeeInfo;
+
+
+6 Retrieve the list of employees working in the same department.
+
+SELECT employee_name, department_id
+FROM EmployeeInfo
+WHERE department_id IN (
+    SELECT department_id
+    FROM EmployeeInfo
+    GROUP BY department_id
+    HAVING COUNT(*) > 1
+)
+ORDER BY department_id;
+
+
+7 Retrieve the last 3 records from the EmployeeInfo table.
+
+SELECT * 
+FROM EmployeeInfo
+ORDER BY id DESC
+LIMIT 3;
+
+
+9 Fetch details of employees whose EmpLname ends with an alphabet ‘A’ and contains five alphabets.
+
+SELECT *
+FROM EmployeeInfo
+WHERE EmpLname LIKE '____A'  -- Last name ends with 'A' and has exactly 5 characters
+  AND CHAR_LENGTH(EmpLname) = 5;  -- Ensure the length is exactly 5
+
+
+
+
+
+

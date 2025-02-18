@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+// what is oop and why we use it?
+// Oop is a programming paradigm that uses objects and classes in programming. 
+// It makes the code more reusable and maintainable. It is used to create real-world applications.
+//OOP is a powerful tool for developing complex programs, and it's used in many popular programming languages. 
+
+//Advantages of oop:
+
+// Modularity: Breaks down code into smaller, more manageable parts, making it easier to maintain and update 
+// Encapsulation: Controls access to data by hiding internal implementation, which promotes code reusability and security 
+// Abstraction: Creates models that represent complex systems 
+// Inheritance: Allows for code reusability and the extension of existing classes 
+// Polymorphism: Provides flexibility in how code is used 
+// Scalability: Allows for the creation of systems that can be easily upgraded from small to large 
+// Problem solving: Breaks down complex problems into smaller, more manageable chunks 
+// Troubleshooting: Makes it easier to identify and isolate problems 
+// Extensibility: Makes it easier to add new features to a program without changing existing code 
+// Flexibility: Allows for the creation of flexible and adaptable systems 
+// Security: Ensures minimal exposure to data corruption 
+// Efficiency: Improves the efficiency of code by reducing redundancy and increasing reusability
+
+// Disadvantages of oop:
+// Complexity: OOP programs can be complex to design, especially for large systems. 
+// Performance: OOP programs can be slower than other types of programs because they require more code processing. 
+// Memory usage: OOP programs can use more memory than other types of programs. 
+// Development time: OOP programs can take longer to develop. 
+// Security risks: OOP programs can have security risks like memory leaks, resource exhaustion, and garbage collection pauses. 
+// Inheritance limitations: Inheritance can be difficult to maintain and extend, especially when dealing with multiple inheritance, tight coupling, and overriding. 
+// Not suitable for all problems: OOP is not a universal language and may not be suitable for all types of problems. 
+// Learning curve: OOP can be tricky to learn and may not be natural for some people. 
+// Unit testing: Unit testing can be difficult because of the interactions between objects. 
+// Code bloat: Extensive class definitions can lead to code bloat.
+
+//what is class and object?
+// A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), 
+// and implementations of behavior (member functions or methods).
+// An object is an instance of a class. When a class is defined, no memory is allocated but when it is instantiated (i.e. an object is created) memory is allocated.
+// and object is a real-world entity that has a state and behavior.
+
+
+//what is access modifier?
+// Access modifiers are keywords that define the scope of a class, method, or variable. 
+// They control the visibility and accessibility of a class, method, or
+// variable to other classes and methods. There are four types of access modifiers in Java
+// : public, private, protected, and default (no modifier).
+
+//what is difference between public, private, protected and default access modifier?
+// Public: Public access modifier is accessible from anywhere. It has the widest scope among all the access modifiers.
+// Private: Private access modifier is accessible only within the class in which it is declared. It has the narrowest scope among all the access modifiers.
+// Protected: Protected access modifier is accessible within the same package and subclasses. It has a wider scope than private but narrower than public.
+// Default: Default access modifier is accessible only within the same package. It has a wider scope than private but narrower than protected.
+
+
+//what is difference between structure and class?
+// A structure is a user-defined data type that groups related data items of different data types. 
+// It is a value type that can contain fields, properties, and methods.
+//example:
+// struct Person {
+//   string name;
+//   int age;
+// }
+
+// A class is a user-defined data type that groups related data items of different data types. 
+// It is a reference type that can contain fields, properties, methods, and events.
+
+//what is overloading and overriding?
+// Overloading: Overloading is a feature that allows a class to have more than one method with the same name but different parameters.
+// Overloading is also known as compile-time polymorphism or static polymorphism.
+
+// Overriding: Overriding is a feature that allows a subclass to provide a specific implementation of a method that is already provided by its superclass.
+// Overriding is also known as runtime polymorphism or dynamic polymorphism.
+
+//what is constructor and destructor?
+// Constructor: A constructor is a special type of method that is used to initialize an object of a class.
+// It is called when an object is created, and it has the same name as the class.
+
+// Destructor: A destructor is a special type of method that is used to destroy an object of a class.
+// It is called when an object is destroyed, and it has the same name as the class preceded by a tilde (~).
+//it is used to free up resources that were allocated during the lifetime of the object.
+//example:
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   sayHello() {
+//     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+//   }
+
+//   ~Person() {
+//     console.log(`Goodbye, ${this.name}!`);
+//   }
+// }
+
+//what is virtual and pure virtual function?
+// Virtual function: A virtual function is a member function that is declared within a base class and is redefined by a derived class.
+// example:
+// class Animal {
+//   virtual void makeSound() {
+//     console.log("Animal makes a sound");
+//   }
+// }
+
+
+// Pure virtual function: A pure virtual function is a virtual function that is declared within a base class but has no implementation.
+// It must be overridden by a derived class.
+//example:
+// class Animal {
+//     virtual void makeSound() = 0;
+//     }
+
+//what is difference between abstract class and interface?
+// Abstract class: An abstract class is a class that cannot be instantiated and is used to define common behavior for its subclasses.
+// It can have both abstract and non-abstract methods.
+
+// Interface: An interface is a reference type that defines a set of abstract methods that a class must implement.
+// It is used to achieve multiple inheritance in Java.
+    </script>
+</body>
+</html>

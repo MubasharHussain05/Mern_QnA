@@ -173,12 +173,12 @@
 //  adds an exclamation mark after each letter. 
 // The function should not modify the input string.
 
-// function panic(str) {
-//     return str.split(" ").join("😎").toUpperCase();
-// }
-// console.log(panic("hello world")); // "HELLO!!!WORLD"
-// console.log(panic("keep calm and code")); // "KEEP!!!CALM!!!AND!!!CODE"
-// console.log(panic("single")); // "SINGLE"
+function panic(str) {
+  return str.toUpperCase().split('').join('!') + '!';
+}
+
+// Example usage:
+console.log(panic("hello")); // Output: "H!E!L!L!O!"
 
 
 // 14. reverse Array with string
@@ -187,7 +187,7 @@
 // let reverse=""
 
 // for(let i=string.length-1;i>=0;i--){
-// reverse +=string(i)
+// reverse +=string[i]
 // } 
 // console.log(reverse)
 
@@ -199,6 +199,25 @@
 // return Array.indexOf(curElem)===index
 // });
 // console.log(uniqueArray)
+
+function removeDuplicates(arr) {
+  const seen = {}; // Object to track seen values
+  const uniqueArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    if (!seen[value]) {
+      seen[value] = true; // Mark the value as seen
+      uniqueArray.push(value); // Add to the unique array
+    }
+  }
+
+  return uniqueArray;
+}
+
+// Example usage
+const array = [1, 2, 3, 4, 2, 3, 5, 6, 1];
+console.log(removeDuplicates(array));
 
 
 //16. Check for Palindrome Strings

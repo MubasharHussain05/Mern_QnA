@@ -187,8 +187,6 @@ COMMIT;
 What is difference between delete TRUNCATE and DROP?
 
 
-
-
 1️⃣ DELETE – Removes Specific Rows
 Can delete specific records using WHERE.
 Can be rolled back inside a transaction.
